@@ -5,8 +5,16 @@ $(document).ready(function () {
 
     $.fn.toDoList = function () {
       // 
-
-
+      var date = new Date();
+      
+     var il = date.getFullYear();
+     var ay = date.getMonth();
+     var gun = date.getDate();
+     var saat = date.getHours();
+     var deyqe = date.getMinutes();
+     var vaxt = "_____" + il + "-" + ay + "-" + gun + "__" + saat + ":" + deyqe
+     
+      
       if (localStorage.inputData) {
         var currentInputDataTest = localStorage.inputData;
         if (typeof (currentInputDataTest) == "string") {
@@ -75,7 +83,7 @@ $(document).ready(function () {
           $(this).parent().remove();
         })
         
-        var toDoText = getDataInput.val();
+        var toDoText = getDataInput.val()+vaxt;
         console.log($.inArray(toDoText, currentInputData))
         if (toDoText != '') {
           if ($.inArray(toDoText, currentInputData) != -1) {
@@ -90,8 +98,7 @@ $(document).ready(function () {
             }).dblclick(function () {
               $(this).removeClass("removed")
             })
-            console.log(Date.now())
-            line.append($('<pre class = "date_c" style="display: inline;">   2020.23.12</pre>'));
+            line.append();
             line.append(removeButton);
             $(htmlBody).prepend(line);
           }
@@ -118,92 +125,3 @@ $(document).ready(function () {
   $('#todo').toDoList();
 })
 
-// $(document).on("click", ".Add", function () {
-//   var text = $(".mytext").val();
-//   if (text != '') {
-//     $("#icine").append("<li class='yenii'><button class='remove-this'></button></li>")
-
-//     var text = $(".mytext").val();
-
-//     $(".yenii").last().append(text);
-
-//   }
-//   else {
-//     alert('Xana bosdu')
-//   }
-
-// })//Elave elemek
-
-
-// $(document).on("click", "ul#icine > li", function () {
-//   $(this).addClass("silinen")
-
-
-
-// })//Secmek
-// $(document).on("dblclick", "ul#icine > li", function () {
-//   $(this).removeClass("silinen")
-
-
-// })//secmememk
-// $(document).on("click", "ul#icine>li>button", function () {
-//   $(this).parent().detach();
-// })//secilen elementi silmek
-// $(document).on("click", ".dell", function () {
-//   $("ul#icine>li.silinen").remove()
-// })//secilen elementleri silmek
-
-
-
-
-// $(document).on("click", ".Add", function () {
-//   var text = $(".mytext").val();
-//   if (text != '') {
-//     $("#icine").append("<li class='yenii'><button class='remove-this'></button></li>")
-
-
-//     $(".yenii").last().append(function () {
-//       var text = $(".mytext").val();
-//       return text;
-//     });
-
-//   }
-//   else {
-//     alert('Xana bosdu')
-//   }
-
-// })//Elave elemek
-
-
-// $(document).on("click", "ul#icine > li", function () {
-//   $(this).addClass("silinen")
-
-
-
-
-// })//Secmek
-// $(document).on("dblclick", "ul#icine > li", function () {
-//   $(this).removeClass("silinen")
-//  })//secmememk
-// $(document).on("click", "ul#icine>li>button", function () {
-//   $(this).parent().detach();
-//   $(this).modal("detach");
-// })//secilen elementi silmek
-// $(document).on("click", ".dell", function () {
-//   $("ul#icine>li.silinen").remove()
-// })
-
-
-//secilen elementleri silmek
-//   function($){
-// $.fn.silinenClassElave = function(){
-//   $(this).addClass("silinen")
-
-// }___________________________________________
-  // }
-  // $(document).ready(function($){
-  //   $.fn.silinenClassElave = function(){
-  //   $(this).addClass("silinen")
-
-  //   }
-  //     })
